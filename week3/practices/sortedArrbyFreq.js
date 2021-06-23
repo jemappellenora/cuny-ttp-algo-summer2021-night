@@ -54,5 +54,5 @@ var frequencySort = function (nums) {
     }
   }
   return result;
-  // brute force --> horrible approach with O(N^2) time complexity and O(2N) space complexity
+  // brute force --> horrible approach with O(maxFreq * N) time complexity and O(2N) space complexity
 };
