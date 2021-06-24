@@ -27,6 +27,27 @@
 */
 
 const kDiffPairs = function( nums, k){
+    const map = new Map();
+    
+    for (const num of nums) {
+        if (!map.has(num)) map.set(num, 0);
+        map.set(num, map.get(num) + 1);
+    }
+    
+    let pairs = 0;
+    
+    // to avoid counting duplicates, we'll just go through all key pair in our map
+    for (const [num, count] of map) {
+        const target = num - k;
+        
+        if (k===0) {
+            if (count > 1) pairs++;
+        } else {
+            if (map.has(target)) pairs++;
+        }
+    }
+    
+    return pairs;
     /* two pointer
         sort the array
         create pointer at index 0 and 1
@@ -98,9 +119,7 @@ const kDiffPairs = function( nums, k){
     //     }else{
     //         i--
     //     }
-    }
-
-
-
-
 }
+
+
+
